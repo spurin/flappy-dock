@@ -291,7 +291,7 @@ Screen - Game
    top: 200px;
 }
 
-.bird
+.bird 
 {
    position: absolute;
    width: 34px;
@@ -300,6 +300,16 @@ Screen - Game
 
    -webkit-animation: animBird 300ms steps(4) infinite;
    animation: animBird 300ms steps(4) infinite;
+}
+
+.molly
+{
+   background-image: url('../assets/molly.png');
+}
+
+.moby
+{
+   background-image: url('../assets/moby.png');
 }
 
 .pipe

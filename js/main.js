@@ -18,7 +18,7 @@ var flyArea = $("#flyarea").height();
 var score = 0;
 var highscore = 0;
 
-var pipeheight = 90;
+var pipeheight = 100;
 var pipewidth = 52;
 var pipes = new Array();
 
@@ -47,6 +47,9 @@ $(document).ready(function() {
    var savedscore = getCookie("highscore");
    if(savedscore != "")
       highscore = parseInt(savedscore);
+
+   var useMolly = Math.floor((Math.random() * 2)) === 0;
+   $("#player").addClass(useMolly ? "molly" : "moby")
 
    //start with the splash screen
    showSplash();
@@ -308,6 +311,7 @@ function setMedal()
 {
    var elemmedal = $("#medal");
    elemmedal.empty();
+   elemmedal.off("click");
 
    if(score < 10)
       //signal that no medal has been won
