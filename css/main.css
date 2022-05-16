@@ -137,10 +137,10 @@ Screen - Game
    top: 0;
    width: 100%;
    height: 80%;
-   background-image: url('../assets/sky.png');
+   background-image: url('../assets/ocean-bg.png');
    background-repeat: repeat-x;
    background-position: 0px 100%;
-   background-color: #4ec0ca;
+   background-color: #222d6d;
 
    -webkit-animation: animSky 7s linear infinite;
    animation: animSky 7s linear infinite;
@@ -173,10 +173,10 @@ Screen - Game
    bottom: 0;
    width: 100%;
    height: 20%;
-   background-image: url('../assets/land.png');
+   background-image: url('../assets/ocean-floor.png');
    background-repeat: repeat-x;
    background-position: 0px 0px;
-   background-color: #ded895;
+   background-color: #094892;
 
    -webkit-animation: animLand 2516ms linear infinite;
    animation: animLand 2516ms linear infinite;
