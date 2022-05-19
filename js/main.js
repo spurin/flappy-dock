@@ -6,6 +6,9 @@ var states = Object.freeze({
    ScoreScreen: 2
 });
 
+var dIsPressed = false;
+var eIsPressed = false;
+
 var currentstate;
 
 var gravity = 0.25;
@@ -43,13 +46,26 @@ $(document).ready(function() {
    if(window.location.search == "?easy")
       pipeheight = 200;
 
+   $(document).on("keydown", (evt) => {
+      if (evt.keyCode === 68)
+         dIsPressed = true;
+      if (evt.keyCode === 69)
+         eIsPressed = true;
+   });
+
+   $(document).on("keyup", (evt) => {
+      if (evt.keyCode === 68)
+         dIsPressed = false;
+      if (evt.keyCode === 69)
+         eIsPressed = false;
+   });
+
+   updateTotals();
+
    //get the highscore
    var savedscore = getCookie("highscore");
    if(savedscore != "")
       highscore = parseInt(savedscore);
-
-   var useMolly = Math.floor((Math.random() * 2)) === 0;
-   $("#player").addClass(useMolly ? "molly" : "moby")
 
    //start with the splash screen
    showSplash();
@@ -77,6 +93,12 @@ function setCookie(cname,cvalue,exdays)
 
 function showSplash()
 {
+   var useMolly = Math.floor((Math.random() * 2)) === 0;
+   $("#player")
+      .removeClass("molly")
+      .removeClass("moby")
+      .addClass(useMolly ? "molly" : "moby")
+
    currentstate = states.SplashScreen;
 
    //set the defaults (again)
@@ -107,6 +129,12 @@ function showSplash()
 function startGame()
 {
    currentstate = states.GameScreen;
+
+   if (dIsPressed) {
+      debugmode = true;
+   }
+
+   pipeheight = (eIsPressed) ? 140 : 100;
 
    //fade out the splash
    $("#splash").stop();
@@ -372,8 +400,16 @@ function playerDead()
 
 function showScore()
 {
+   debugmode = false;
+
    //unhide us
    $("#scoreboard").css("display", "block");
+
+   const oldRunCount = localStorage.getItem("flappy-dock/num-runs") || "0";
+   const oldScore = localStorage.getItem("flappy-dock/total-score") || "0";
+   localStorage.setItem("flappy-dock/num-runs", parseInt(oldRunCount) + 1);
+   localStorage.setItem("flappy-dock/total-score", parseInt(oldScore) + score);
+   updateTotals();
 
    //remove the big score
    setBigScore(true);
@@ -459,6 +495,12 @@ function updatePipes()
    var newpipe = $('<div class="pipe animated"><div class="pipe_upper" style="height: ' + topheight + 'px;"></div><div class="pipe_lower" style="height: ' + bottomheight + 'px;"></div></div>');
    $("#flyarea").append(newpipe);
    pipes.push(newpipe);
+}
+
+function updateTotals()
+{
+   $("#num-runs").text(localStorage.getItem("flappy-dock/num-runs") || "0");
+   $("#total-score").text(localStorage.getItem("flappy-dock/total-score") || "0");
 }
 
 var isIncompatible = {
