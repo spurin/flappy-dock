@@ -1,8 +1,21 @@
-<img src="screencap.png" align="right" width="250">
+# Floppy Dock
 
-# [play floppy bird](https://nebezb.com/floppybird/)
+A forked copy of [nebez/floppybird](https://github.com/nebez/floppybird) that uses Moby/Molly from Docker and turns it into a Docker Desktop Extension.
 
-If you missed the Flappy Bird hype, here's your chance to try the best vintage knockoff.
+## Installing
+
+If you want to run it yourself, you can install it using the following command:
+
+```bash
+docker extension install mikesir87/flappy-dock-extension
+```
+
+Then, you can access it via the side nav menu in Docker Desktop.
+
+## Building
+
+The included `Makefile` provides several jobs that can be used to build, install, or update the extension locally.
+
 
 **Features**
 
