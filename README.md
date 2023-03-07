@@ -1,4 +1,4 @@
-# Floppy Dock
+# Flappy Dock
 
 A forked copy of [nebez/floppybird](https://github.com/nebez/floppybird) that uses Moby/Molly from Docker and turns it into a Docker Desktop Extension.
 
