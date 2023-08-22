@@ -8,6 +8,10 @@ This image is standalone, with a webserver, for use in Docker or Kubernetes dire
 
 Use the build.sh script with -l for local, -c for a crossbuild or -cr for a crossbuild using remote targets
 
+## Pre-Built Image
+
+This image is crossbuilt for arm and amd and is available at spurin/flappy-dock:latest on Docker Hub
+
 **Features**
 
 * 🎉 good ol' div's for all the objects and graphics,
