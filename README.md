@@ -1,21 +1,12 @@
 # Flappy Dock
 
-A forked copy of [nebez/floppybird](https://github.com/nebez/floppybird) that uses Moby/Molly from Docker and turns it into a Docker Desktop Extension.
+A forked copy of [mikesir87/flappy-dock](https://github.com/nebez/floppybird) which in turn is a forked copy of [nebez/floppybird](https://github.com/nebez/floppybird) that uses Moby/Molly from Docker and turns it into a Docker Desktop Extension.
 
-## Installing
-
-If you want to run it yourself, you can install it using the following command:
-
-```bash
-docker extension install mikesir87/flappy-dock-extension
-```
-
-Then, you can access it via the side nav menu in Docker Desktop.
+This image is standalone, with a webserver, for use in Docker or Kubernetes directly.
 
 ## Building
 
-The included `Makefile` provides several jobs that can be used to build, install, or update the extension locally.
-
+Use the build.sh script with -l for local, -c for a crossbuild or -cr for a crossbuild using remote targets
 
 **Features**
 
